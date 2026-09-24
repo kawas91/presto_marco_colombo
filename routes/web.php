@@ -9,6 +9,8 @@ Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 Route::get('search/article', [PublicController::class, 'searchArticles'])->name('article.search');
 
+Route::post('lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');
+
 // Articles
 
 Route::get('article/index', [ArticleController::class, 'index'])->name('article.index');
@@ -31,4 +33,5 @@ Route::patch('/revisor/undo/{article}', [RevisorController::class, 'undo'])->nam
 
 Route::get('revisor/request', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('revisor.request');
 
-Route::get('revisor/make/{user}', [RevisorController::class, 'makeRevisor'])->middleware('isRevisor')->name('revisor.make');
+// Route::get('revisor/make/{user}', [RevisorController::class, 'makeRevisor'])->middleware('isRevisor')->name('revisor.make');
+Route::get('revisor/make/{user}', [RevisorController::class, 'makeRevisor'])->name('revisor.make');

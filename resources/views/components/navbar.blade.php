@@ -69,14 +69,19 @@
                     </li>
                 @endauth
             </ul>
-            <form class="d-flex ms-auto" role="search" action="{{ route('article.search') }}" method="GET">
-                <div class="input-group">
-                    <input class="form-control me-2" type="search" name="query" placeholder="Search"
-                        aria-label="Search" />
-                    <button class="btn btn-outline-success input-group-text" type="submit"
-                        id="basic-addon2">Search</button>
-                </div>
-            </form>
+            <div class="d-flex ms-auto align-items-center">
+                <x-_locale lang="it" />
+                <x-_locale lang="uk" />
+                <x-_locale lang="es" />
+                <form role="search" action="{{ route('article.search') }}" method="GET">
+                    <div class="input-group">
+                        <input class="form-control me-2" type="search" name="query" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="btn btn-outline-success input-group-text" type="submit"
+                            id="basic-addon2">Search</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </nav>
