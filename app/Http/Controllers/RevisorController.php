@@ -22,13 +22,19 @@ class RevisorController extends Controller
     public function accept(Article $article)
     {
         $article->setAccepted(true);
-        return redirect()->back()->with('message', "Hai accettato l'articolo $article->title");
+        return redirect()->back()->with(['message' => "Hai accettato l'articolo $article->title", 'undo' => $article->id]);
     }
 
     public function reject(Article $article)
     {
         $article->setAccepted(false);
-        return redirect()->back()->with('message', "Hai rifiutato l'articolo $article->title");
+        return redirect()->back()->with(['message' => "Hai rifiutato l'articolo $article->title", 'undo' => $article->id]);
+    }
+
+    public function undo(Article $article)
+    {
+        $article->setAccepted(null);
+        return redirect()->back()->with('message', "Hai annullato la scelta per l'articolo $article->title");
     }
 
     public function becomeRevisor()

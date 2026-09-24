@@ -27,6 +27,8 @@ Route::patch('revisor/accept/{article}', [RevisorController::class, 'accept'])->
 
 Route::patch('revisor/reject/{article}', [RevisorController::class, 'reject'])->name('revisor.reject');
 
+Route::patch('/revisor/undo/{article}', [RevisorController::class, 'undo'])->name('revisor.undo');
+
 Route::get('revisor/request', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('revisor.request');
 
 Route::get('revisor/make/{user}', [RevisorController::class, 'makeRevisor'])->middleware('isRevisor')->name('revisor.make');

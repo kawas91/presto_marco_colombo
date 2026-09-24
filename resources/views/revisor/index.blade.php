@@ -7,6 +7,15 @@
             <div class="row justify-content-center">
                 <div class="col-5 alert alert-success text-center shadow rounded">
                     {{ session('message') }}
+
+                    @if (session()->has('undo'))
+                        <form action="{{ route('revisor.undo', ['article' => session('undo')]) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn mt-2 btn-sm btn-outline-warning">Annullare?</button>
+                        </form>
+                    @endif
+
                 </div>
             </div>
         @endif
