@@ -3,7 +3,7 @@
     <x-masthead title="Dettaglio dell'articolo: {{ $article->title }}"></x-masthead>
 
     <div class="container-fluid">
-        <div class="row justify-content-center align-items-center height-custom py-5">
+        <div class="row justify-content-center align-items-center height-custom p-5">
             <div class="col-12 col-md-6 mb-3">
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
