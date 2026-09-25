@@ -50,7 +50,8 @@
                             {{ __('ui.hello') }}, {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('article.create') }}">Crea</a></li>
+                            <li><a class="dropdown-item" href="{{ route('article.create') }}">{{ __('ui.create') }}</a>
+                            </li>
                             <li><a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
                             </li>

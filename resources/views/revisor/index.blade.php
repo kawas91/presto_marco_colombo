@@ -24,12 +24,21 @@
             <div class="row justify-content-center pt-5">
                 <div class="col-12 col-md-8">
                     <div class="row justify-content-center">
-                        @for ($i = 0; $i < 6; $i++)
-                            <div class="col-6 col-md-4 mb-4 text-center">
-                                <img src="http://picsum.photos/{{ 300 + $i }}" class="img-fluid rounded shadow"
-                                    alt="Immagine segnaposto">
-                            </div>
-                        @endfor
+                        @if ($articles_to_check->images->count())
+                            @foreach ($articles_to_check->images as $key => $image)
+                                <div class="col-6 col-md-4 mb-4 text-center">
+                                    <img src="{{ Storage::url($image->path) }}" class="img-fluid rounded shadow"
+                                        alt="Immagine {{ $key + 1 }} dell'articolo {{ $articles_to_check->title }}">
+                                </div>
+                            @endforeach
+                        @else
+                            @for ($i = 0; $i < 6; $i++)
+                                <div class="col-6 col-md-4 mb-4 text-center">
+                                    <img src="http://picsum.photos/{{ 300 + $i }}" class="img-fluid rounded shadow"
+                                        alt="Immagine segnaposto">
+                                </div>
+                            @endfor
+                        @endif
                     </div>
                 </div>
                 <div class="col-12 col-md-4 ps-4 d-flex flex-column justify-content-between">
