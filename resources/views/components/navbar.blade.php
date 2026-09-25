@@ -11,17 +11,18 @@
                     <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ route('article.index') }}">Tutti gli articoli</a>
+                    <a class="nav-link" aria-current="page"
+                        href="{{ route('article.index') }}">{{ __('ui.allArticles') }}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Categorie
+                        {{ __('ui.categories') }}
                     </a>
                     <ul class="dropdown-menu">
                         @foreach ($categories as $category)
                             <li><a class="dropdown-item text-capitalize"
-                                    href="{{ route('article.byCategory', ['category' => $category]) }}">{{ $category->name }}</a>
+                                    href="{{ route('article.byCategory', ['category' => $category]) }}">{{ __("ui.$category->name") }}</a>
                             </li>
 
                             @if (!$loop->last)
@@ -35,7 +36,7 @@
                     @if (Auth::user()->is_revisor)
                         <li class="nav-item">
                             <a class="nav-link btn btn-outline-success btn-sm position-relative w-sm-25" aria-current="page"
-                                href="{{ route('revisor.index') }}">Zona revisore
+                                href="{{ route('revisor.index') }}">{{ __('ui.reviewerArea') }}
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                     {{ \App\Models\Article::toBeRevisedCount() }}
@@ -46,7 +47,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Ciao, {{ Auth::user()->name }}
+                            {{ __('ui.hello') }}, {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('article.create') }}">Crea</a></li>
@@ -60,11 +61,13 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Ciao, utente!
+                            {{ __('ui.hello') }}, {{ __('ui.user') }}!
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Accedi</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register') }}">Registrati</a></li>
+                            <li><a class="dropdown-item text-capitalize"
+                                    href="{{ route('login') }}">{{ __('ui.log-in') }}</a></li>
+                            <li><a class="dropdown-item text-capitalize"
+                                    href="{{ route('register') }}">{{ __('ui.register') }}</a></li>
                         </ul>
                     </li>
                 @endauth

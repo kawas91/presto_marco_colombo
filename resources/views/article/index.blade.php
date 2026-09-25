@@ -1,6 +1,6 @@
 <x-layout>
 
-    <x-masthead title='Tutti gli articoli'></x-masthead>
+    <x-masthead title="{{ __('ui.allArticles') }}"></x-masthead>
 
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center height-custom py-5">
