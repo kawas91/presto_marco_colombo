@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center height-custom p-5">
-            <div class="col-12 col-md-6 mb-3">
+            <div class="col-12 col-md-6 mb-3 shadow">
                 <div id="carouselExample" class="carousel slide">
                     @if ($article->images->count() > 0)
                         <div id="carouselExample" class="carousel slide">
@@ -35,7 +35,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-12 col-md-6 mb-3 height-custom text-center">
+            <div class="col-12 col-md-6 mb-3 text-center">
                 <h2 class="display-5"> <span class="fw-bold">Titolo:</span> {{ $article->title }}</h2>
                 <div class="d-flex flex-column justify-content-center h-75">
                     <h4 class="fw-bold">Prezzo: {{ $article->price }} €</h4>

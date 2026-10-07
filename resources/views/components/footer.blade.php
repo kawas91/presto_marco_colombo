@@ -1,7 +1,7 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+<footer class="text-center text-lg-start text-muted bg-body">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 bg-body-tertiary border-bottom">
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
             <span></span>
@@ -10,19 +10,19 @@
 
         <!-- Right -->
         <div>
-            <a href="" class="me-4 text-reset">
+            <a href="" class="me-4 text-reset text-decoration-none">
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="" class="me-4 text-reset text-decoration-none">
                 <i class="fa-brands fa-x-twitter"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="" class="me-4 text-reset text-decoration-none">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="" class="me-4 text-reset text-decoration-none">
                 <i class="fa-brands fa-linkedin"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="" class="me-4 text-reset text-decoration-none">
                 <i class="fa-brands fa-github"></i>
             </a>
         </div>
@@ -32,14 +32,14 @@
 
     <!-- Section: Links  -->
     <section class="">
-        <div class="container text-center text-md-start mt-5">
+        <div class="container text-center text-md-start mt-4">
             <!-- Grid row -->
             <div class="row mt-3">
                 <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-2">
                     <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>Presto.it
+                    <h6 class="fw-bold mb-3">
+                        <i class="fas fa-bolt me-3"></i>Presto.it
                     </h6>
                     <p class="h5">
                         Vuoi diventare revisore?
@@ -47,56 +47,58 @@
                     <p>
                         Clicca il pulsante sottostante, farai richiesta al nostro admin
                     </p>
-                    <a href="{{ route('revisor.request') }}" class="btn btn-success">Diventa revisore!</a>
+                    <a href="{{ route('revisor.request') }}" class="btn btn-outline">Diventa revisore!</a>
                 </div>
                 <!-- Grid column -->
 
                 <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Products
+                    <h6 class="text-uppercase fw-bold mb-3">
+                        {{ __('ui.categories') }}
                     </h6>
-                    <p>
-                        <a href="#!" class="text-reset">Angular</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">React</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Vue</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Laravel</a>
-                    </p>
+                    @foreach ($categories as $category)
+                        <p class="mb-1">
+                            <a class="text-capitalize text-reset"
+                                href="{{ route('article.byCategory', ['category' => $category]) }}">{{ __("ui.$category->name") }}</a>
+                        </p>
+                    @endforeach
                 </div>
                 <!-- Grid column -->
 
                 <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Useful links
+                    <h6 class="text-uppercase fw-bold mb-3">
+                        Links
                     </h6>
-                    <p>
-                        <a href="#!" class="text-reset">Pricing</a>
+                    <p class="mb-1">
+                        <a href="{{ route('homepage') }}" class="text-reset">Home</a>
                     </p>
-                    <p>
-                        <a href="#!" class="text-reset">Settings</a>
+                    <p class="mb-1">
+                        <a href="{{ route('article.index') }}" class="text-reset">{{ __('ui.allArticles') }}</a>
                     </p>
-                    <p>
-                        <a href="#!" class="text-reset">Orders</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Help</a>
-                    </p>
+                    @auth
+                        <p class="mb-1">
+                            <a class="text-reset" href="#"
+                                onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                        </p>
+                    @else
+                        <p class="mb-1">
+                            <a class="text-capitalize text-reset" href="{{ route('login') }}">{{ __('ui.log-in') }}</a>
+                        </p>
+                        <p class="mb-1">
+                            <a class="text-capitalize text-reset"
+                                href="{{ route('register') }}">{{ __('ui.register') }}</a>
+                        </p>
+                    @endauth
                 </div>
                 <!-- Grid column -->
 
                 <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-2">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    <h6 class="text-uppercase fw-bold mb-3">Contact</h6>
                     <p><i class="fas fa-home me-3"></i> Milano, MI 20100, IT</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
@@ -113,7 +115,7 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    <div class="text-center p-2 cr-color">
         © 2026 Copyright:
         <a class="text-reset fw-bold" href="{{ route('homepage') }}">Presto.it</a>
     </div>

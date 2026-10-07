@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-evenly align-items-center mt-5">
             <a href="{{ route('article.show', compact('article')) }}" class="btn btn-primary">{{ __('ui.detail') }}</a>
             <a href="{{ route('article.byCategory', ['category' => $article->category]) }}"
-                class="btn btn-outline-info">{{ __('ui.' . $article->category->name) }}</a>
+                class="btn btn-outline">{{ __('ui.' . $article->category->name) }}</a>
         </div>
     </div>
 </div>

@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-xl border-bottom bg-body sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('homepage') }}">Presto.it</a>
+        <a class="navbar-brand fw-bold " href="{{ route('homepage') }}">Presto.it</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="fa-solid fa-bars"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">Home</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page"
@@ -35,7 +35,7 @@
                 @auth
                     @if (Auth::user()->is_revisor)
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-success btn-sm position-relative w-sm-25" aria-current="page"
+                            <a class="nav-link btn btn-outline btn-sm position-relative w-sm-25" aria-current="page"
                                 href="{{ route('revisor.index') }}">{{ __('ui.reviewerArea') }}
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -81,7 +81,7 @@
                     <div class="input-group">
                         <input class="form-control me-2" type="search" name="query" placeholder="Search"
                             aria-label="Search" />
-                        <button class="btn btn-outline-success input-group-text" type="submit"
+                        <button class="btn btn-outline input-group-text" type="submit"
                             id="basic-addon2">Search</button>
                     </div>
                 </form>

@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center height-custom py-5">
             @forelse ($articles as $article)
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 col-xl-4">
                     <x-card :article="$article" />
                 </div>
             @empty

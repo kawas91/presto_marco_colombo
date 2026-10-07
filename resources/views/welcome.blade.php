@@ -1,6 +1,6 @@
 <x-layout>
     <div class="container-fluid text-center bg-body-tertiary">
-        <div class="row vh-100 justify-content-center align-items-center position-relative">
+        <div class="row vh-100 justify-content-center align-items-center position-relative header-img">
             @if (session()->has('errorMessage'))
                 <div class="alert alert-danger text-center shadow rounded w-50 position-absolute top-10">
                     {{ session('errorMessage') }}
@@ -12,17 +12,18 @@
                 </div>
             @endif
             <div class="col-12">
-                <h1 class="display-4">Presto.it</h1>
+                <h1 class="display-1 fw-bold ls-wide t-shadow">Presto.it</h1>
                 <div class="my-3">
                     @auth
-                        <a class="btn btn-dark" href="{{ route('article.create') }}">{{ __('ui.publishArticle') }}</a>
+                        <a class="btn btn-primary shadow"
+                            href="{{ route('article.create') }}">{{ __('ui.publishArticle') }}</a>
                     @endauth
                 </div>
             </div>
         </div>
         <div class="row height-custom justify-content-center align-items-center py-5">
             @forelse ($articles as $article)
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-xl-4">
                     <x-card :article="$article" />
                 </div>
             @empty

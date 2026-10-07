@@ -26,15 +26,15 @@
                     <div class="row justify-content-center">
                         @if ($articles_to_check->images->count())
                             @foreach ($articles_to_check->images as $key => $image)
-                                <div class="col-6">
-                                    <div class="card mb-3">
+                                <div class="col-10">
+                                    <div class="card mb-3 shadow">
                                         <div class="row g-0">
                                             <div class="col-md-4">
                                                 <img src="{{ $image->getUrl(300, 300) }}"
                                                     class="img-fluid rounded shadow"
                                                     alt="Immagine {{ $key + 1 }} dell'articolo {{ $articles_to_check->title }}">
                                             </div>
-                                            <div class="col-md-5 ps-3">
+                                            <div class="col-md-5 ps-md-3">
                                                 <div class="card-body">
                                                     <h5>Labels</h5>
                                                     @if ($image->labels)
@@ -54,35 +54,35 @@
                                                             <div class="text-center mx-auto {{ $image->adult }}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-10">adult</div>
+                                                        <div class="col-9">adult</div>
                                                     </div>
                                                     <div class="row justify-content-center">
                                                         <div class="col-2">
                                                             <div class="text-center mx-auto {{ $image->violence }}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-10">violence</div>
+                                                        <div class="col-9">violence</div>
                                                     </div>
                                                     <div class="row justify-content-center">
                                                         <div class="col-2">
                                                             <div class="text-center mx-auto {{ $image->spoof }}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-10">spoof</div>
+                                                        <div class="col-9">spoof</div>
                                                     </div>
                                                     <div class="row justify-content-center">
                                                         <div class="col-2">
                                                             <div class="text-center mx-auto {{ $image->racy }}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-10">racy</div>
+                                                        <div class="col-9">racy</div>
                                                     </div>
                                                     <div class="row justify-content-center">
                                                         <div class="col-2">
                                                             <div class="text-center mx-auto {{ $image->medical }}">
                                                             </div>
                                                         </div>
-                                                        <div class="col-10">medical</div>
+                                                        <div class="col-9">medical</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4 ps-4 d-flex flex-column justify-content-between">
-                    <div>
+                    <div class="p-3">
                         <h1>{{ $articles_to_check->title }}</h1>
                         <h3>Autore: {{ $articles_to_check->user->name }}</h3>
                         <h4>{{ $articles_to_check->price }}€</h4>
